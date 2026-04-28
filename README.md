@@ -25,4 +25,4 @@ python pipeline/radar_pipeline.py
 
 ## Requirements
 
-Python 3.8+, NumPy, Matplotlib, SciPy
+Python 3.8+, NumPy, Matplotlib
