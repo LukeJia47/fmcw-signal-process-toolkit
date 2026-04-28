@@ -1,4 +1,4 @@
-# FMCW Radar DSP Toolkit
+# FMCW Signal Process Toolkit
 
 A Python implementation of signal processing algorithms 
 for FMCW radar, covering the complete pipeline from raw beat 
