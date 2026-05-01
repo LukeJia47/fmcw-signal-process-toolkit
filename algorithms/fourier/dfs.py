@@ -1,32 +1,31 @@
 import numpy as np
 
 
-def discrete_fourier_series(f, N):
+def discrete_fourier_series(f):
     """
     Discrete Fourier Series (DFS)
 
     Parameters
     ----------
     f : ndarray
-        One period of the signal
-    N : int
-        Period length
+        One period of a discrete-time periodic signal (length N)
 
     Returns
     -------
     c : ndarray
         DFS coefficients
     """
-    n = np.arange(N)
-    c = np.zeros(N, dtype=complex)
+    N = len(f)
+    n = np.arange(N)    # n: frequency index
+    k = np.arange(N)    # k: time index
 
-    for k in range(N):
-        c[k] = (1 / N) * np.sum(f * np.exp(-1j * 2 * np.pi * k * n / N))
+    exponent = np.exp(-1j * 2 * np.pi * np.outer(n, k) / N)
+    c = (1 / N) * np.dot(exponent, f)
 
     return c
 
 
-def inverse_dfs(c, k_range):
+def inverse_dfs(c, k):
     """
     Inverse DFS
 
@@ -34,7 +33,7 @@ def inverse_dfs(c, k_range):
     ----------
     c : ndarray
         DFS coefficients
-    k_range : ndarray
+    k : ndarray
         Time index
 
     Returns
@@ -42,10 +41,12 @@ def inverse_dfs(c, k_range):
     fn : ndarray
         Reconstructed signal
     """
+
     N = len(c)
-    fn = np.zeros(len(k_range), dtype=complex)
 
-    for k in range(N):
-        fn += c[k] * np.exp(1j * 2 * np.pi * k * k_range / N)
+    n = np.arange(N)    # n: frequency index
 
-    return fn
+    exponent = np.exp(1j * 2 * np.pi * np.outer(k, n) / N)
+    f = np.dot(exponent, c)
+
+    return f
