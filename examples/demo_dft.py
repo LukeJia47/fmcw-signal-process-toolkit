@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import math
 
 from algorithms.fourier.dft import discrete_fourier_transform
 
