@@ -7,7 +7,7 @@ def ca_cfar(x, Tr = 8, Td = 4, Gr = 4, Gd = 2, offset = 6):
     Parameters
     ----------
     x : np.ndarray
-        Input Range-Doppler map (in dB scale)
+        Input Range-Doppler map
     Tr : int
         Number of training cells in range dimension
     Td : int
@@ -46,17 +46,14 @@ def ca_cfar(x, Tr = 8, Td = 4, Gr = 4, Gd = 2, offset = 6):
 
                     # exclude guard cells
                     if abs(i - p) > Gr or abs(j - q) > Gd:
-                        noise_level =  noise_level + 10**(x[p,q]/10)
+                        noise_level =  noise_level + x[p,q]
 
             # average noise (linear)
             noise_level = noise_level / N_train
-
-            # convert to dB
-            noise_level = max(noise_level, 1e-12)
-            threshold = 10 * np.log10(noise_level)
+            threshold = noise_level
 
             # add offset
-            threshold += offset
+            threshold *= offset
 
             # CUT
             if x[i,j] > threshold:
