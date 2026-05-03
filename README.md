@@ -1,20 +1,28 @@
 # FMCW Signal Process Toolkit
 
-A Python implementation of signal processing algorithms 
-for FMCW radar, covering the complete pipeline from raw beat 
-signal to target detection.
+A lightweight Python toolkit for FMCW radar signal processing, implementing a full pipeline from signal generation to target detection.
 
-## Algorithms Implemented
+---
 
-- **DFS** — Discrete Fourier Series for periodic signals
-- **DFT** — Discrete Fourier Transform (matrix method, O(N²))
-- **FFT** — Cooley-Tukey radix-2 recursive FFT (O(N log N))
-- **CA-CFAR** — Cell-Averaging Constant False Alarm Rate detection
+## 📡 Pipeline
 
-## Pipeline
-Beat Signal → 1D FFT (Range) → 2D FFT (Range-Doppler) → CA-CFAR → Target Detection
+FMCW Signal Generation → Beat Signal → Range FFT (1D FFT) → Range-Doppler Map (2D FFT) → CA-CFAR Detection → Target Detection
 
-## Quick Start
+---
+
+## 🧠 Algorithms Implemented
+
+### Fourier Transform
+- DFS
+- DFT (O(N²) matrix method)
+- FFT (Cooley–Tukey, O(N log N))
+
+### Detection
+- CA-CFAR (Cell Averaging CFAR)
+
+---
+
+## 🚀 Quick Start
 
 ```bash
 git clone https://github.com/LukeJia47/fmcw-signal-process-toolkit
@@ -23,6 +31,17 @@ pip install -r requirements.txt
 python pipeline/radar_pipeline.py
 ```
 
-## Requirements
+## 📦 Requirements
 
-Python 3.8+, NumPy, Matplotlib
+- Python ≥ 3.8
+- NumPy
+- Matplotlib
+
+---
+
+## 🎯 Purpose
+
+- FMCW radar signal processing learning
+- Range-Doppler visualization
+- CFAR detection understanding
+- Algorithm validation and verification
