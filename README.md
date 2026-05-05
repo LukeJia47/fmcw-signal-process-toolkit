@@ -22,6 +22,26 @@ FMCW Signal Generation → Beat Signal → Range FFT (1D FFT) → Range-Doppler 
 
 ---
 
+## 📊 Results  
+
+### Fourier Transform
+
+| DFS Coefficients | DFS Reconstruction |
+|----------------|------------------|
+| ![](assets/dfs_coefficients.png) | ![](assets/dfs_reconstruction.png) |
+
+| DFT Spectrum | FFT Spectrum |
+|-------------|-------------|
+| ![](assets/dft.png) | ![](assets/fft.png) |
+
+---
+
+### Radar Pipeline
+
+| Range-Doppler Map | CFAR Detection |
+|------------------|---------------|
+| ![](assets/rdm_2d_fft.png) | ![](assets/cfar_detection.png) |
+
 ## 🚀 Quick Start
 
 ```bash
